@@ -29,11 +29,11 @@ jobs:
       # Paso 4: Convertir archivo AsciiDoc a HTML usando asciidoctor-revealjs
       - name: Convert AsciiDoc to reveal.js slides
         run: |
-          ./asciidoctor-revealjs-linux presentation.adoc -o presentation.html
+          ./asciidoctor-revealjs-linux presentacion.adoc -o presentacion.html
 
       # Paso 5: Subir el archivo HTML generado como un artefacto
       - name: Upload HTML
         uses: actions/upload-artifact@v3
         with:
-          name: presentation-slides
-          path: ./presentation.html
+          name: presentacion-slides
+          path: ./presencation.html
