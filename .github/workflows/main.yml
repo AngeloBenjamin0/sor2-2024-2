@@ -19,3 +19,6 @@ jobs:
 
       - run: asciidoctor-pdf presentacion.adoc -o presentacion.pdf
         working-directory: ./
+      - uses: actions/upload-artifact@v3
+        with:
+          path: output/presentacion.pdf
