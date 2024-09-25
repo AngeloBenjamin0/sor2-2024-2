@@ -1,22 +1,39 @@
-name: Asciidoctor
+name: Build AsciiDoc to reveal.js slides
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  compile:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      # Paso 1: Checkout el código fuente
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - uses: ruby/setup-ruby@v1
+      # Paso 2: Descargar asciidoctor-revealjs Standalone Executable
+      - name: Download asciidoctor-revealjs
+        run: |
+          wget https://github.com/asciidoctor/asciidoctor-reveal.js/releases/download/v5.1.0/asciidoctor-revealjs-linux
+          chmod +x asciidoctor-revealjs-linux
+
+      # Paso 3: Descargar reveal.js framework
+      - name: Clone reveal.js
+        run: |
+          git clone -b 4.1.2 --depth 1 https://github.com/hakimel/reveal.js.git
+
+      # Paso 4: Convertir archivo AsciiDoc a HTML usando asciidoctor-revealjs
+      - name: Convert AsciiDoc to reveal.js slides
+        run: |
+          ./asciidoctor-revealjs-linux presentation.adoc -o presentation.html
+
+      # Paso 5: Subir el archivo HTML generado como un artefacto
+      - name: Upload HTML
+        uses: actions/upload-artifact@v3
         with:
-          ruby-version: 3.0
-
-      - run: git clone -b 4.1.2 --depth 1 https://github.com/hakimel/reveal.js.git
-        working-directory: ./
-
-      - run: ./asciidoctor-revealjs --version
-        working-directory: ./
+          name: presentation-slides
+          path: ./presentation.html
