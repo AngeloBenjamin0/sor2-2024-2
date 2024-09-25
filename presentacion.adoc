@@ -2,7 +2,7 @@
 Autor del Presentación
 :date: 2024-09-24
 :icons: font
-:revealjsdir: reveal.js
+:revealjsdir: ./reveal.js
 :revealjs_theme: white
 :revealjs_transition: fade
 
