@@ -15,10 +15,8 @@ jobs:
         with:
           ruby-version: 3.0
 
-      - run: gem install asciidoctor-pdf
-
-      - run: asciidoctor-pdf presentacion.adoc -o presentacion.pdf
+      - run: git clone -b 4.1.2 --depth 1 https://github.com/hakimel/reveal.js.git
         working-directory: ./
-      - uses: actions/upload-artifact@v3
-        with:
-          path: ./presentacion.pdf
+
+      - run: ./asciidoctor-revealjs --version
+        working-directory: ./
