@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  example:
+  compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,8 +15,8 @@ jobs:
         with:
           ruby-version: 2.7
 
-      - uses: reitzig/actions-asciidoctor@v2.0.2
-        with:
-          version: 2.0.18
+      - name: Install asciidoctor-pdf
+        run: gem install asciidoctor-pdf
 
-      - run: asciidoctor --version
+      - run: asciidoctor-pdf presentacion.adoc -o presentacion.pdf
+        working-directory: ./
