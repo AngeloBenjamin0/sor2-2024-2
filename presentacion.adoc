@@ -1,0 +1,38 @@
+= Título de la Presentación
+Autor del Presentación
+:date: 2024-09-24
+:icons: font
+:backend: revealjs
+:revealjs_theme: white
+:revealjs_transition: fade
+
+== Diapositiva 1: Introducción
+
+* Punto 1: Breve resumen del tema
+* Punto 2: Por qué es importante
+* Punto 3: Objetivos principales
+
+== Diapositiva 2: Contenido Principal
+
+=== Subtítulo: Primer Aspecto
+
+. Explicación sobre el primer aspecto clave
+. Detalles adicionales
+. **Dato importante** para destacar
+
+=== Subtítulo: Segundo Aspecto
+
+* Descripción del segundo aspecto
+* Comparación con el primero
+* Conclusiones parciales
+
+== Diapositiva 3: Resultados o Conclusiones
+
+- Resumen de los puntos clave
+- Resultados esperados
+- Próximos pasos
+
+== Diapositiva 4: Preguntas
+
+[role="icon"]
+icon:question-circle[] *Preguntas del público*
